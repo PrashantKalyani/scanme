@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-parkingspace_floor
+      author: santosh.g@desapex.com
+      changes:
+        - loadData:
+            tableName: parkingspace_floor
+            file: classpath:/db/changelog/data/parkingspace_floor.csv
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: office_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: varchar(200)

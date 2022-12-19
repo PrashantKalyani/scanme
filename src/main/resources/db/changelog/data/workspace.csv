@@ -1,0 +1,7 @@
+id,workspace_floor_id,name,type,max_occupancy
+1,1,Workspace 1,MEETING_ROOM,10
+2,1,Workspace 2,INDIVIDUAL,1
+3,2,Workspace 3,MEETING_ROOM,5
+4,2,Workspace 4,MEETING_ROOM,5
+5,3,Workspace 1,INDIVIDUAL,1
+6,3,Workspace 2,MEETING_ROOM,5

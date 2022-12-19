@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-workspace_booking
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: workspace_booking
+            columns:
+              - column:
+                  name: id
+                  autoIncrement: true
+                  type: BIGINT
+              - column:
+                  name: employee_id
+                  type: BIGINT
+              - column:
+                  name: workspace_id
+                  type: BIGINT
+              - column:
+                  name: start_time
+                  type: timestamp
+              - column:
+                  name: end_time
+                  type: timestamp

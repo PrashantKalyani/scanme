@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-parkingspace
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: parkingspace
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: parkingspace_floor_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: varchar(200)
+              - column:
+                  name: type
+                  type: varchar(50)
+              - column:
+                  name: status
+                  type: varchar(50)

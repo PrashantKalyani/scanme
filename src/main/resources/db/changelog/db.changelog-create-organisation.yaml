@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+     id: create-organisation
+     author: santosh.g@desapex.com
+     changes:
+      - createTable:
+          tableName: Organisation
+          columns:
+            - column:
+                constraints:
+                  nullable: false
+                name: id
+                type: BIGINT
+            - column:
+                constraints:
+                  nullable: false
+                name: name
+                type: varchar(200)

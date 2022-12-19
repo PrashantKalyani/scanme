@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-office
+      author: santosh.g@desapex.com
+      changes:
+        - loadData:
+            tableName: office
+            file: classpath:/db/changelog/data/office.csv
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: organisation_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: varchar(200)

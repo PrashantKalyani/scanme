@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-office
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: office
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: organisation_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: varchar(200)

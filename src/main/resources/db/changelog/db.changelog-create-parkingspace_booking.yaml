@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-parkingspace_booking
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: parkingspace_booking
+            columns:
+              - column:
+                  name: id
+                  autoIncrement: true
+                  type: BIGINT
+              - column:
+                  name: employee_id
+                  type: BIGINT
+              - column:
+                  name: parkingspace_id
+                  type: BIGINT
+              - column:
+                  name: date
+                  type: timestamp
+              - column:
+                  name: start_time
+                  type: time
+              - column:
+                  name: end_time
+                  type: time
