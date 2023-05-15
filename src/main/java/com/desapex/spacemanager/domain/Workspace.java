@@ -27,7 +27,20 @@ public class Workspace {
     @Column(name = "max_occupancy", nullable = false)
     public Long maxOccupancy;
 
+    @Column(name = "media", nullable = false)
+    public String media;
+
+    @Column(name = "cooling", nullable = false)
+    public String cooling;
+
     @OneToMany(targetEntity = WorkspaceBooking.class, mappedBy = "workspace", fetch = FetchType.EAGER)
     public List<WorkspaceBooking> bookings;
 
+    public WorkspaceType getType() {
+        return workspaceType;
+    }
+
+    public void setWorkspaceType(WorkspaceType workspaceType) {
+        this.workspaceType = workspaceType;
+    }
 }

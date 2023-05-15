@@ -27,4 +27,16 @@ public class WorkspaceBooking {
     @Column(name = "endTime", nullable = false)
     public LocalDateTime endTime;
 
+    @Column(name = "type")
+    public String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
 }

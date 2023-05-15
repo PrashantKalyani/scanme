@@ -22,7 +22,8 @@ public class ParkingspaceBookingResource {
                 dto.parkingspaceId,
                 dto.date,
                 dto.startTime,
-                dto.endTime
+                dto.endTime,
+                dto.userName
         );
     }
 

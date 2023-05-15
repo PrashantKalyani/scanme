@@ -32,3 +32,7 @@ databaseChangeLog:
       file: db/changelog/db.changelog-insert-into-parkingspace.yaml
   - include:
       file: db/changelog/db.changelog-create-parkingspace_booking.yaml
+  - include:
+      file: db/changelog/db.changelog-create-department.yaml
+  - include:
+      file: db/changelog/db.changelog-insert-into-department.yaml

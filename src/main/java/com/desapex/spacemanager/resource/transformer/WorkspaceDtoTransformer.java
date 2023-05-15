@@ -13,7 +13,7 @@ import java.time.LocalTime;
 @Component
 public class WorkspaceDtoTransformer {
 
-    public WorkspaceDto transform(Workspace workspace) {
+    public WorkspaceDto transform(Workspace workspace, LocalDateTime startTime, LocalDateTime endTime) {
         WorkspaceDto dto = new WorkspaceDto();
         dto.id = workspace.id;
         dto.name = workspace.name;
@@ -21,7 +21,26 @@ public class WorkspaceDtoTransformer {
         dto.type = workspace.workspaceType.name();
         dto.status = workSpaceStatus(workspace);
         dto.maxOccupancy = workspace.maxOccupancy;
+        dto.media = workspace.media;
+        dto.cooling = workspace.cooling;
+        WorkspaceBooking firstBooking = workspace.bookings.stream()
+                .filter(booking -> booking.startTime.isAfter(startTime) || booking.endTime.isBefore(endTime))
+                .findFirst().orElse(null);
+        if (firstBooking != null) {
+            String bookingType = firstBooking.getType();
+            dto.bookingType = bookingType;
+        }
         return dto;
+
+
+//        WorkspaceBooking firstBooking = workspace.bookings.stream().findFirst().orElse(null);
+//        if (firstBooking != null) {
+//
+//            String bookingType = firstBooking.getType();
+//            dto.bookingType = bookingType;
+//        }
+//
+//        return dto;
     }
 
     private String workSpaceStatus(Workspace workspace) {
@@ -35,5 +54,6 @@ public class WorkspaceDtoTransformer {
         LocalDateTime now = LocalDateTime.now();
         return booking.endTime.isBefore(now) || booking.startTime.isAfter(now);
     }
+
 
 }

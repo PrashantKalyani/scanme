@@ -18,4 +18,11 @@ public class Office {
     @Column(name = "name", nullable = false)
     public String name;
 
+
+    public Office() {
+    }
+
+    public Office(String name) {
+        this.name = name;
+    }
 }

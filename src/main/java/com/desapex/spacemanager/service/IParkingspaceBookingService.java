@@ -10,7 +10,8 @@ public interface IParkingspaceBookingService {
             Long parkingspaceId,
             LocalDate date,
             LocalTime startTime,
-            LocalTime endTime
+            LocalTime endTime,
+            String userName
     );
 
 }

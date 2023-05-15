@@ -1,29 +1,22 @@
 databaseChangeLog:
   - changeSet:
-      id: create-workspace
+      id: create-department
       author: santosh.g@desapex.com
       changes:
         - createTable:
-            tableName: workspace
+            tableName: department
             columns:
               - column:
                   name: id
                   type: BIGINT
               - column:
-                  name: workspace_floor_id
+                  name: office_id
                   type: BIGINT
               - column:
                   name: name
                   type: varchar(200)
               - column:
-                  name: type
-                  type: varchar(50)
-              - column:
-                  name: max_occupancy
+                  name: credit
                   type: BIGINT
-              - column:
-                  name: media
-                  type: varchar(50)
-              - column:
-                  name: cooling
-                  type: varchar(50)
+
+

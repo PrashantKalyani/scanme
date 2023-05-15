@@ -19,4 +19,10 @@ public class Organisation {
     @OneToMany(targetEntity = Office.class, mappedBy = "organisation")
     public List<Office> offices;
 
+    public Organisation() {
+    }
+
+    public Organisation(String name) {
+        this.name = name;
+    }
 }

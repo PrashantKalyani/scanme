@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-department
+      author: santosh.g@desapex.com
+      changes:
+        - loadData:
+            tableName: department
+            file: classpath:/db/changelog/data/department.csv
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: office_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: varchar(200)
+              - column:
+                  name: credit
+                  type: BIGINT
+
+
+

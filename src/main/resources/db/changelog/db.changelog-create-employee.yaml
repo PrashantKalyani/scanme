@@ -27,3 +27,15 @@ databaseChangeLog:
               - column:
                   name: phone
                   type: BIGINT
+              - column:
+                  name: user
+                  type: varchar(200)
+              - column:
+                  name: password
+                  type: varchar(200)
+              - column:
+                  name: department_id
+                  type: INT
+              - column:
+                  name: job
+                  type: varchar(200)

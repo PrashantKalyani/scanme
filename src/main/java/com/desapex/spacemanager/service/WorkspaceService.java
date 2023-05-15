@@ -17,32 +17,47 @@ import java.util.stream.Collectors;
 @Service
 public class WorkspaceService implements IWorkspaceService {
 
+
+
     @Autowired
     private WorkspaceRepository workspaceRepository;
 
     @Override
-    public List<Workspace> getWorkspaces(Long officeId, Long workspaceFloorId, WorkspaceType workspaceType, LocalDate date, LocalTime startTime, LocalTime endTime) {
+    public List<Workspace> getWorkspaces(Long officeId, Long workspaceFloorId, WorkspaceType workspaceType, LocalDate startdate, LocalDate enddate, LocalTime startTime, LocalTime endTime) {
         return workspaceRepository.findAll()
                 .stream()
                 .filter(workspace -> filterByOffice(workspace, officeId))
                 .filter(workspace -> filterByFloor(workspace, workspaceFloorId))
                 .filter(workspace -> filterByWorkspaceType(workspace, workspaceType))
-                .filter(workspace -> filterByTimeRange(workspace, date, startTime, endTime))
+                .filter(workspace -> filterByTimeRange(workspace, startdate, enddate, startTime, endTime))
                 .collect(Collectors.toList());
     }
 
-    private boolean filterByTimeRange(Workspace workspace, LocalDate date, LocalTime startTime, LocalTime endTime) {
-        if (date == null || startTime == null || endTime == null) {
+    private boolean filterByTimeRange(Workspace workspace, LocalDate startdate, LocalDate enddate, LocalTime startTime, LocalTime endTime) {
+        if (startdate == null || enddate == null || startTime == null || endTime == null) {
             return true;
         }
-        return workspace.bookings.stream().allMatch(booking -> bookingOutsideGivenTimeRange(booking, date, startTime, endTime));
+        boolean allBookingsOutsideGivenTimeRange = workspace.bookings.stream().allMatch(booking ->
+                bookingOutsideGivenTimeRange(booking, startdate, enddate, startTime, endTime));
+        boolean anyBookingInsideGivenTimeRange = workspace.bookings.stream().anyMatch(booking ->
+                bookingInsideGivenTimeRange(booking, startdate, enddate, startTime, endTime ));
+        return allBookingsOutsideGivenTimeRange || anyBookingInsideGivenTimeRange;
     }
 
-    private boolean bookingOutsideGivenTimeRange(WorkspaceBooking booking, LocalDate date, LocalTime startTime, LocalTime endTime) {
-        LocalDateTime start = LocalDateTime.of(date, startTime);
-        LocalDateTime end = LocalDateTime.of(date, endTime);
+
+
+
+    private boolean bookingOutsideGivenTimeRange(WorkspaceBooking booking, LocalDate startdate, LocalDate enddate, LocalTime startTime, LocalTime endTime) {
+        LocalDateTime start = LocalDateTime.of(startdate, startTime);
+        LocalDateTime end = LocalDateTime.of(enddate, endTime);
         return (start.isBefore(booking.startTime) && end.isBefore(booking.startTime)) ||
                 (start.isAfter(booking.endTime) && end.isAfter(booking.endTime));
+    }
+
+    private boolean bookingInsideGivenTimeRange(WorkspaceBooking booking, LocalDate startdate, LocalDate enddate, LocalTime startTime, LocalTime endTime) {
+        LocalDateTime start = LocalDateTime.of(startdate, startTime);
+        LocalDateTime end = LocalDateTime.of(enddate, endTime).minusMinutes(1);
+        return (start.isAfter(booking.endTime) || end.isBefore(booking.startTime));
     }
 
     private boolean filterByOffice(Workspace workspace, Long officeId) {
@@ -65,5 +80,7 @@ public class WorkspaceService implements IWorkspaceService {
         }
         return Objects.equals(workspace.workspaceType, workspaceType);
     }
+
+
 
 }

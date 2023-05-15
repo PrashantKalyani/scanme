@@ -10,6 +10,6 @@ import java.util.List;
 
 
 public interface IWorkspaceService {
-    List<Workspace> getWorkspaces(Long officeId, Long workspaceFloorId, WorkspaceType workspaceType, LocalDate date, LocalTime startTime, LocalTime endTime);
+    List<Workspace> getWorkspaces(Long officeId, Long workspaceFloorId, WorkspaceType workspaceType, LocalDate startdate, LocalDate enddate, LocalTime startTime, LocalTime endTime);
 
 }

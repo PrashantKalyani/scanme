@@ -18,10 +18,13 @@ databaseChangeLog:
                   type: varchar(200)
               - column:
                   name: type
-                  type: varchar(200)
-              - column:
-                  name: status
-                  type: varchar(200)
+                  type: varchar(50)
               - column:
                   name: max_occupancy
                   type: BIGINT
+              - column:
+                  name: media
+                  type: varchar(50)
+              - column:
+                  name: cooling
+                  type: varchar(50)

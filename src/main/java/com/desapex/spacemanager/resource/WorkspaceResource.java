@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,13 +30,16 @@ public class WorkspaceResource {
             @RequestParam(name = "officeId", required = false) Long officeId,
             @RequestParam(name = "workspaceFloorId", required = false) Long workspaceFloorId,
             @RequestParam(name = "workspaceType", required = false) WorkspaceType workspaceType,
-            @RequestParam(name = "date", required = false) LocalDate date,
+            @RequestParam(name = "startdate", required = false) LocalDate startdate,
+            @RequestParam(name = "enddate", required = false) LocalDate enddate,
             @RequestParam(name = "startTime", required = false) LocalTime startTime,
             @RequestParam(name = "endTime", required = false) LocalTime endTime
     ) {
-        return workspaceService.getWorkspaces(officeId, workspaceFloorId, workspaceType, date, startTime, endTime)
+        LocalDateTime startDateTime = LocalDateTime.of(startdate, startTime);
+        LocalDateTime endDateTime = LocalDateTime.of(enddate, endTime).minusMinutes(1);
+        return workspaceService.getWorkspaces(officeId, workspaceFloorId, workspaceType, startdate, enddate, startTime, endTime)
                 .stream()
-                .map(workspace -> workspaceDtoTransformer.transform(workspace))
+                .map(workspace -> workspaceDtoTransformer.transform(workspace, startDateTime, endDateTime))
                 .collect(Collectors.toList());
     }
 

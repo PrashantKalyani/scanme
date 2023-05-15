@@ -9,4 +9,5 @@ public class CreateParkingspaceBookingDto {
     public LocalDate date;
     public LocalTime startTime;
     public LocalTime endTime;
+    public String userName;
 }

@@ -1,5 +1,16 @@
-id,organisation_id,office_id,first_name,last_name,email,phone
-1,1,1,Santosh,Goudappanavar,Santosh.g@dspx.com,7204899892
-2,2,1,Jhony,Dev,Jhonydev@dspx.com,1234567890
-3,2,2,Abhilash,Koliwad,.AbhilashKoliwad@desapex.com,0987654321
-4,1,2,Ram,Nayak,RamNayak@dspx.com,1122334455
+id,organisation_id,office_id,first_name,last_name,email,phone,user,password,department_id,job
+1,1,1,Santosh,Goudappanavar,santosh.g@desapex.com,7204899892,sandy,User@123,1,User
+2,2,1,Rahul,Z,rahul.z@desapex.com,1234567890,rahul,User@123,1,User
+3,2,2,Shreedhar,Hungund,shreedhar@desapex.com,0987654321,shreedhar,User@123,1,Teamlead
+4,1,2,Akshaykumar,Pawar,akshaykumar@desapex.com,1122334455,akshay,User@123,2,User
+5,1,2,Adarsh,Shet,adarsh@desapex.com,9638527413,adarsh,User@123,2,Teamlead
+6,2,1,Shreenidhi,Hungund,shreenidhi@desapex.com,8962357963,shreenidhi,User@123,6,User
+7,1,1,Varunkumar,Sagarkar,vsagarkar@desapex.com,9632541235,varunkumar,User@123,3,Teamleand
+8,2,2,Megha,Kallihal,megha@desapex.com,8745321569,megha,User@123,3,User
+9,1,2,Chanda,Dalbanjan,chanda@desapex.com,7895421365,chanda,User@123,4,Teamlead
+10,2,1,Prathiba,Hiremath,pratibha@desapex.com,7954632154,prathiba,User@123,4,User
+11,1,1,Vishnu,Kumar,vishnukumar@desapex.com,7856952369,vishnu,User@123,5,Teamlead
+12,2,1,Md. Zubear,H T,zubear@desapex.com,8147487616,zubear,User@123,5,User
+13,1,2,Venkatesh,Kulkarni,venkatesh@desapex.com,8431100780,venky,User@123,6,Teamlead
+14,2,1,Prashant,Kalyani,prashant@desapex.com,9591438353,prashant,User@123,3,User
+15,2,1,Yallapa,Avaraddi,yallappa@desapex.com,8197188639,yallapa,User@123,4,User

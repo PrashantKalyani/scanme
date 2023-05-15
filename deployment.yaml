@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: space-manager-statefulset-1
+  labels:
+    app: space-manager-1
+    backup: daily
+spec:
+  serviceName: space-manager-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: space-manager-1
+    spec:
+      volumes:
+        - name: pgdata
+          persistentVolumeClaim:
+            claimName: space-manager-volume-claim
+        - name: max-conns
+          configMap:
+            name: max-conns
+      containers:
+        - name: timescale
+          image: 'desapex.azurecr.io/PROJECT_ID/IMAGE:TAG'
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: pgdata
+            - name: max-conns
+              mountPath: /docker-entrypoint-init.d
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: space-manager-creds
+                  key: username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: space-manager-creds
+                  key: password
+            - name: POSTGRES
+              value: desapex-domain
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: max-conns
+data:
+  max_conns.sql: "ALTER SYSTEM SET max_connections = 5000;"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: space-manager-service
+  annotations:
+    service.spec.externalTrafficPolicy: Local
+spec:
+  selector:
+    app: space-manager-1
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: NodePort
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: space-manager-volume-claim
+  labels:
+    backup: daily
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

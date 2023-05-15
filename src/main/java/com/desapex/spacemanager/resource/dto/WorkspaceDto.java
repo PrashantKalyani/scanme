@@ -8,4 +8,8 @@ public class WorkspaceDto {
     public String type;
     public String status;
     public Long maxOccupancy;
+    public String media;
+    public String cooling;
+    public String bookingType;
+
 }
