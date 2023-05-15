@@ -22,7 +22,7 @@ public class Office {
     public Office() {
     }
 
-    public Office(String name) {
-        this.name = name;
+    public Office(int id) {
+        this.id = (long) id;
     }
 }
