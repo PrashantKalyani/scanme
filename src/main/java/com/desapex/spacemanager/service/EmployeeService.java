@@ -4,7 +4,6 @@ import com.desapex.spacemanager.domain.Employee;
 import com.desapex.spacemanager.repository.EmployeeRepository;
 import com.desapex.spacemanager.resource.dto.EmployeeDto;
 import com.desapex.spacemanager.resource.dto.Employee_DBUtil;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -22,21 +21,12 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeService implements IEmployeeService {
 
-    private final EmployeeRepository employeeRepository;
-    private Connection connection;
+    Connection connection;
+
 
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
 
-
-    private Connection getConnection() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = Employee_DBUtil.getConnection();
-        }
-        return connection;
-    }
+    private EmployeeRepository employeeRepository;
 
     @Override
     public List<Employee> getEmployees(Long organisationId, Long officeId) {
@@ -61,6 +51,10 @@ public class EmployeeService implements IEmployeeService {
         return Objects.equals(employee.office.id, officeId);
     }
 
+    public EmployeeService() throws SQLException
+    {
+        connection = Employee_DBUtil.getConnection();
+    }
 
     @Override
     public Map<String, Object> loginValidation(String username, String password) {
