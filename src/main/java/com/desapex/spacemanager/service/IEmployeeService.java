@@ -14,4 +14,10 @@ public interface IEmployeeService {
     public boolean isEmployeeEmailExists(String email);
 
     public  void deleteEmployeeByEmail(String email);
+
+    EmployeeDto getEmployeeById(Long employeeId);
+
+    void updateEmployeeStatus(Long employeeId, boolean newStatus);
+
+    boolean resetPassword(String username, String oldPassword, String newPassword);
 }

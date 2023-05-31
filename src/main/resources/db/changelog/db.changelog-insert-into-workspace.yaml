@@ -28,3 +28,6 @@ databaseChangeLog:
               - column:
                   name: cooling
                   type: varchar(50)
+              - column:
+                  name: qr_data
+                  type: varchar(50)

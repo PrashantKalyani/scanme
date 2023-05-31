@@ -33,6 +33,10 @@ public class Workspace {
     @Column(name = "cooling", nullable = false)
     public String cooling;
 
+    @Column(name = "qr_data", nullable = false)
+    public String qrData;
+
+
     @OneToMany(targetEntity = WorkspaceBooking.class, mappedBy = "workspace", fetch = FetchType.EAGER)
     public List<WorkspaceBooking> bookings;
 
@@ -42,5 +46,25 @@ public class Workspace {
 
     public void setWorkspaceType(WorkspaceType workspaceType) {
         this.workspaceType = workspaceType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public WorkspaceFloor getFloor() {
+        return floor;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getQrData(String qrData) {
+        return this.qrData;
+    }
+
+    public void setQrData(String qrData) {
+        this.qrData = qrData;
     }
 }

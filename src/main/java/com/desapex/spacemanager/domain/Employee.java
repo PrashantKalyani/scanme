@@ -51,6 +51,13 @@ public class Employee {
     @Column(name = "job" , nullable = false)
     public String jobrole;
 
+    @Column(name = "jobstatus", nullable = false)
+    @Convert(converter = StatusConverter.class)
+    private boolean status;
+    public boolean isStatus() {
+        return status;
+    }
+
     public List<WorkspaceBooking> getWorkspaceBookings() {
         List<WorkspaceBooking> workspaceBookings = new ArrayList<>();
         for (WorkspaceBooking booking : workspaceBookings) {
@@ -64,5 +71,13 @@ public class Employee {
 
     public Department getDepartment() {
         return department_id;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
     }
 }

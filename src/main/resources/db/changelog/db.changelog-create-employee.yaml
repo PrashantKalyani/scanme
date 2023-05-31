@@ -39,3 +39,6 @@ databaseChangeLog:
               - column:
                   name: job
                   type: varchar(200)
+              - column:
+                  name: jobstatus
+                  type: varchar(200)

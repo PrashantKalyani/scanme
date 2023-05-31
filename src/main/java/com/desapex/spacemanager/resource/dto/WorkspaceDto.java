@@ -11,5 +11,6 @@ public class WorkspaceDto {
     public String media;
     public String cooling;
     public String bookingType;
+    public String qrData;
 
 }

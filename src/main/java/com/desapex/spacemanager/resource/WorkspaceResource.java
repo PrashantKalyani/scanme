@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("workspace")
 public class WorkspaceResource {
+
     @Autowired
     private IWorkspaceService workspaceService;
 
@@ -42,5 +43,4 @@ public class WorkspaceResource {
                 .map(workspace -> workspaceDtoTransformer.transform(workspace, startDateTime, endDateTime))
                 .collect(Collectors.toList());
     }
-
 }

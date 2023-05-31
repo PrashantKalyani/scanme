@@ -18,4 +18,7 @@ public class WorkspaceFloor {
     @Column(name = "name", nullable = false)
     public String name;
 
+    public Long getId() {
+        return id;
+    }
 }

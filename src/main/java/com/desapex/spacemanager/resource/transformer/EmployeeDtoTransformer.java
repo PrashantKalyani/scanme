@@ -9,9 +9,10 @@ public class EmployeeDtoTransformer {
 
     public EmployeeDto transform(Employee employee) {
         EmployeeDto dto = new EmployeeDto();
-        dto.id = employee.id;
-        dto.first_name = employee.first_name;
-        dto.last_name = employee.last_name;
+        dto.setId(employee.id);
+        dto.setFirst_name(employee.first_name);
+        dto.setLast_name(employee.last_name);
+        dto.setJobstatus(employee.isStatus()); // Transform and set the jobstatus field
         return dto;
     }
 

@@ -23,6 +23,7 @@ public class WorkspaceDtoTransformer {
         dto.maxOccupancy = workspace.maxOccupancy;
         dto.media = workspace.media;
         dto.cooling = workspace.cooling;
+        dto.qrData = workspace.qrData;
         WorkspaceBooking firstBooking = workspace.bookings.stream()
                 .filter(booking -> booking.startTime.isAfter(startTime) || booking.endTime.isBefore(endTime))
                 .findFirst().orElse(null);

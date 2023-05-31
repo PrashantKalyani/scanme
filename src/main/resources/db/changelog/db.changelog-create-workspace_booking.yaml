@@ -28,3 +28,6 @@ databaseChangeLog:
               - column:
                   name: type
                   type: varchar(200)
+              - column:
+                  name: booking_time
+                  type: timestamp

@@ -24,6 +24,7 @@ public class EmployeeDto {
     public String phone;
     public Department department_id;
     public String jobrole;
+    private boolean jobstatus;
 
 
     public Employee toEmployee() {
@@ -39,6 +40,7 @@ public class EmployeeDto {
         employee.setPhone(this.getPhone());
         employee.setDepartment_id(this.getDepartment_id());
         employee.setJobrole(this.getJobrole());
+        employee.setStatus(this.jobstatus);
         return employee;
     }
 }

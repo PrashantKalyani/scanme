@@ -1,9 +1,12 @@
 package com.desapex.spacemanager.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "Workspace_Booking")
 public class WorkspaceBooking {
@@ -30,12 +33,23 @@ public class WorkspaceBooking {
     @Column(name = "type")
     public String type;
 
+    @Column(name = "bookingTime", nullable = false)
+    public LocalDateTime bookingTime;
+
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Workspace getWorkspace() {
+        return workspace;
+    }
+
+    public Employee getEmployee() {
+        return employee;
     }
 
 
