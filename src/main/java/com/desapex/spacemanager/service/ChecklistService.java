@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ChecklistService {
@@ -51,10 +52,15 @@ public class ChecklistService {
             // Fetch previous two rows meeting the conditions with a limit of 2
             List<LocalDateTime> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, PageRequest.of(0, 2));
 
+            // Convert LocalDateTime objects to String representations
+            List<String> previousChecklistsAsString = previousChecklists.stream()
+                    .map(LocalDateTime::toString)
+                    .collect(Collectors.toList());
+
             // Construct response including latest and previous checklists
             Map<String, Object> response = new HashMap<>();
             response.put("latestChecklist", latestChecklist);
-            response.put("previousChecklists", previousChecklists);
+            response.put("previousChecklists", previousChecklistsAsString);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
