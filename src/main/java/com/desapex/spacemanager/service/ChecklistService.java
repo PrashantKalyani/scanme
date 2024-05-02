@@ -50,10 +50,14 @@ public class ChecklistService {
             Checklist latestChecklist = latestChecklistOpt.get();
 
             // Fetch previous two rows meeting the conditions with a limit of 2
-            List<LocalDateTime> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, PageRequest.of(0, 2));
+            List<Checklist> previousChecklists = checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(maintenanceId, PageRequest.of(0, 2));
 
-            // Convert LocalDateTime objects to String representations
+            // Add second condition to fetch previous checklists
+            previousChecklists.addAll(checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(maintenanceId, PageRequest.of(0, 2)));
+
+            // Extract time from previousChecklists
             List<String> previousChecklistsAsString = previousChecklists.stream()
+                    .map(Checklist::getTime)
                     .map(LocalDateTime::toString)
                     .collect(Collectors.toList());
 
@@ -67,6 +71,7 @@ public class ChecklistService {
             return new ResponseEntity<>("No checklist found for maintenance ID: " + maintenanceId, HttpStatus.NOT_FOUND);
         }
     }
+
     public Optional<Checklist> getChecklistById(Long id) {
         return checklistRepository.findById(id);
     }

@@ -12,11 +12,10 @@ import java.util.Optional;
 @Repository
 public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
     Optional<Checklist> findTopByMaintenanceIdOrderByIdDesc(Long maintenanceId);
-    @Query("SELECT c.time FROM Checklist c WHERE c.maintenanceId = :maintenanceId " +
-            "AND ((c.sp IS NOT NULL AND c.fm IS NULL AND c.gm IS NULL) " +
-            "OR (c.sp IS NOT NULL AND c.fm IS NOT NULL AND c.gm IS NULL)) " +
-            "ORDER BY c.time DESC")
-    List<LocalDateTime> findPreviousChecklists(Long maintenanceId, Pageable pageable);
+    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(Long maintenanceId, Pageable pageable);
+
+    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(Long maintenanceId, Pageable pageable);
 }
+
 
 
