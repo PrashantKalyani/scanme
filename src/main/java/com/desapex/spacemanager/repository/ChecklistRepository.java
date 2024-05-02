@@ -3,6 +3,7 @@ import com.desapex.spacemanager.domain.Checklist;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -11,10 +12,15 @@ import java.util.Optional;
 
 @Repository
 public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
-    Optional<Checklist> findTopByMaintenanceIdOrderByIdDesc(Long maintenanceId);
-    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(Long maintenanceId);
+    @Query(value = "SELECT * FROM checklist c WHERE c.maintenance_id = :maintenanceId ORDER BY c.time DESC LIMIT 1", nativeQuery = true)
+    Optional<Checklist> findLatestByMaintenanceId(@Param("maintenanceId") Long maintenanceId);
 
-    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(Long maintenanceId);
+    @Query(value = "SELECT c.time FROM checklist c WHERE c.maintenance_id = :maintenanceId " +
+            "AND ((c.sp IS NOT NULL AND c.fm IS NULL AND c.gm IS NULL) " +
+            "OR (c.sp IS NOT NULL AND c.fm IS NOT NULL AND c.gm IS NULL)) " +
+            "ORDER BY c.time DESC LIMIT :limit", nativeQuery = true)
+    List<LocalDateTime> findPreviousChecklists(@Param("maintenanceId") Long maintenanceId, @Param("limit") int limit);
+
 }
 
 

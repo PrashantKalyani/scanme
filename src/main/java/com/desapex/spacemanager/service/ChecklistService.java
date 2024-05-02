@@ -44,20 +44,16 @@ public class ChecklistService {
 
     public ResponseEntity<?> getLatestChecklistByMaintenanceId(Long maintenanceId) {
         // Fetch latest checklist
-        Optional<Checklist> latestChecklistOpt = checklistRepository.findTopByMaintenanceIdOrderByIdDesc(maintenanceId);
+        Optional<Checklist> latestChecklistOpt = checklistRepository.findLatestByMaintenanceId(maintenanceId);
 
         if (latestChecklistOpt.isPresent()) {
             Checklist latestChecklist = latestChecklistOpt.get();
 
             // Fetch previous two rows meeting the conditions with a limit of 2
-            List<Checklist> previousChecklists = checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(maintenanceId);
+            List<LocalDateTime> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
 
-            // Add second condition to fetch previous checklists
-            previousChecklists.addAll(checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(maintenanceId));
-
-            // Extract time from previousChecklists
+            // Convert LocalDateTime objects to String representations
             List<String> previousChecklistsAsString = previousChecklists.stream()
-                    .map(Checklist::getTime)
                     .map(LocalDateTime::toString)
                     .collect(Collectors.toList());
 
@@ -71,7 +67,6 @@ public class ChecklistService {
             return new ResponseEntity<>("No checklist found for maintenance ID: " + maintenanceId, HttpStatus.NOT_FOUND);
         }
     }
-
     public Optional<Checklist> getChecklistById(Long id) {
         return checklistRepository.findById(id);
     }
