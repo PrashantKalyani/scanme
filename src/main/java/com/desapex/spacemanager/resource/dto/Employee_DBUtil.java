@@ -12,9 +12,9 @@ public class Employee_DBUtil {
             return connection;
         } else {
             String driver = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/space-manager?useSSL=false";
-            String user = "root";
-            String password = "Desapex@123";
+            String url = "jdbc:mysql://desapexserver.mysql.database.azure.com:3306/desapexdb?useSSL=true";
+            String user = "Desapex";
+            String password = "scanme@123";
 
             try {
                 Class.forName(driver);

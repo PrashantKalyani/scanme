@@ -12,7 +12,6 @@ public class EmployeeDtoTransformer {
         dto.setId(employee.id);
         dto.setFirst_name(employee.first_name);
         dto.setLast_name(employee.last_name);
-        dto.setJobstatus(employee.isStatus()); // Transform and set the jobstatus field
         return dto;
     }
 

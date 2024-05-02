@@ -1,0 +1,302 @@
+Reference,Equipment
+1,"66kV,TR-1,12.5MVA, PROLEC"
+2,"66kV,TR-2,12.5MVA, PROLEC"
+3,"AUX, TR, 100kVA, UNIVERSAL"
+4,"DG ROOM, TR1, 630kVA"
+5,"DG ROOM, TR2, 630kVA"
+6,"UTILITY, TR-1, 1500kVA"
+7,"UTILITY, TR-2, 1500kVA"
+8,"UTILITY, TR-3, 1500kVA"
+9,"UTILITY, TR-4, 1500kVA"
+10,"NEW UTILITY, TR-1, 1500kVA"
+11,"NEW UTILITY, TR-2, 1500kVA"
+12,"PH1, N/W, TR-1, 1250kVA "
+13,"PH1, N/W, TR-2, 1250kVA "
+14,"PH1, N/W, TR-3, 1000kVA "
+15,"PH1, S/W, TR-1, 1250kVA "
+16,"PH1, S/W, TR-2, 1250kVA "
+17,"PH1, S/W, TR-3, 1000kVA "
+18,"PH2, N/W, TR-1, 1250kVA "
+19,"PH2, N/W, TR-2, 1250kVA "
+20,"PH2, N/W, TR-3, 1250kVA "
+21,"PH2, S/W, TR-1, 1500kVA"
+22,"PH2, S/W, TR-2, 1500kVA"
+23,"PH2, S/W, TR-3, 1500kVA"
+24,"PH2, S/W, TR-4, 1500kVA"
+25,DG 1 Cummins 1250kVA
+26,DG 2 Cummins 1250kVA
+27,DG 3 Cummins 2000kVA
+28,DG 4 Perkins 2000kVA
+29,DG 5 Perkins 2000kVA
+30,"AMF Set-1, 250kVA for HT shop"
+31,"66kV SS, 11kV HT Panel (7Nos.)"
+32,HT Panel-1 ( 5no's) DG Room 
+33,HT Panel-2 ( 5no's) DG Room 
+34,DG HT Panel ( 9+8no's) DG Room
+35,11 kV Grid & Sync control & Relay Panels (11Nos.)
+36,11 kV  NGR Panel (15nos.)
+37,1.1 HT Panel Utility Block (5no's) (N/W)
+38,1.2 HT Panel Utility Block ( 6Nos.) (S/W)
+39,Utility Block  HT Panel (6no's)
+40,New Utility HT Panel (6nos.)
+41,"11kV HT Panel, Ph1, N/W, SS (5Nos.)"
+42,"11kV HT Panel, Ph1, S/W, SS (5Nos.)"
+43,"11kV HT Panel, Ph2, N/W, SS (7Nos.)"
+44,"11kV HT Panel, Ph2, S/W, SS (8Nos.)"
+45,Main LT Panel (66kV Station)
+46,Main LT Panel (DG Room)
+47,DG Room Utility  LT Panel
+48,DG Room Auxiliary LT Panel
+49,Main LT Feeders (Utility)
+50,Main LT Feeders (New Utility)
+51,"Main LT Feeders (Ph1, N/W)"
+52,"Main LT Feeders (Ph1, S/W)"
+53,"Main LT Feeders (Ph2, N/W)"
+54,"Main LT Feeders (Ph2, S/W)"
+55,Main LT Feeders HT shop
+56,APFC-4A DG Control room
+57,APFC-4B DG Control room
+58,APFC-04 (Utility)
+59,APFC-3A (Utility)
+60,APFC-3B (Utility)
+61,APFC-3C (Utility)
+62,APFC-5(New Utility)
+63,APFC-6 (New Utility)
+64,"APFC-1A, PH-1, N/W SS"
+65,"APFC-1B, PH-1, N/W SS"
+66,"APFC-1C, PH-1, N/W SS"
+67,"APFC-2A, PH-1, S/W SS"
+68,"APFC-2B, PH-1, S/W SS"
+69,"APFC-2C, PH-1, S/W SS"
+70,"APFC-01, PH-2, N/W SS"
+71,"APFC-02, PH-2, N/W SS"
+72,"APFC-03, PH-2, N/W SS"
+73,"APFC-01, PH-2, S/W SS"
+74,"APFC-02, PH-2, S/W SS"
+75,"APFC-03, PH-2, S/W SS"
+76,"APFC-04, PH-2, S/W SS"
+77,PDB-01 Utility Block
+78,PDB-02 TEF3 Competence Lab B102
+79,PDB-03 Ultra filtration Area
+80,"PDB Panel-01 (Ph1, N/W)"
+81,"PDB Panel-02 (Ph1, N/W)"
+82,"PDB Panel-01 (Ph1, S/W)"
+83,"PDB Panel-02 (Ph1, S/W)"
+84,"PDB Panel-03 (Ph1, S/W)"
+85,TCT Building PDB Panel
+86,PDB Panel-01 (Ph2 S/W)
+87,PDB Panel-01(HT Shop)
+88,PDB Panel (ST Shop)
+89,PDB Panel for FCM Container Off.
+90,SPDB Panels 1 to 4 HT SHOP
+91,SPDB Panel 5 AETP 1st flr. (HT Shop)
+92,SPDB Panels 6 to 9 HT SHOP
+93,Utility Block RP Panel
+94,Kitchen RP Panel
+95,Gate-02 UPS Room Main LT Panel
+96,"Prod. area RP Panel (Ph1, N/W)"
+97,Off. area RP Panel N/W (Ph1 G/F elect. room)
+98,"Prod. area RP Panel (Ph1, S/W)"
+99,Off. area RP Panel S/W (Ph1 G/F elect. room)
+100,Ph-02 RPDB panel-01 (N/W)
+101,Ph-02 RPDB panel-02 (S/W)
+102,Utility Block Lighting Panel
+103,"Lighting Panel (Ph1, N/W)"
+104,"Lighting Panel (Ph1, S/W)"
+105,"MLDB-01 Panel (Ph2, N/W)"
+106,"MLDB-02 Panel (Ph2, S/W)"
+107,Ph-2 N/W Switch Room Panel Office 
+108,Ph-2 N/W Switch Room Panel Dining
+109,Ph-2 S/W Switch Room Panel Office
+110,Ph-2 S/W Switch Room Panel Dining
+111,Lighting Panel (HT Shop)
+112,Ext. Lighting Control Panel (DG Room)
+113,Locker Room Ext. Light control Panel
+114,Gate-02 Ext. Light Control Panel
+115,Gate-03 Ext. Lighting Control Panel
+116,ELDB Panel (Utility Block)
+117,ELDB Panel Ph1 N/W
+118,ELDB Panel Ph1 S/W
+119,UPS O/P Panel (Utility Block)
+120,Dynamic UPS O/P panel N/W
+121,Dynamic UPS O/P panel S/W
+122,UPS O/P Panel ( Ph1 N/W G/F Off. Area)
+123,UPS O/P Panel ( Ph1 S/W G/F Off. Area)
+124,UPSDB-01 (Ph2 N/W SS)
+125,UPSDB-02 (Ph2 S/W  SS)
+126,UPSDB HT Shop
+127,ACDB (66kV Control Room)
+128,ACDB (DG Room)
+129,DCDB (66kV Control Room)
+130,DCDB 1 & 2 DG Room
+131,HVAC Panel DG Room
+132,HVAC Panel Utility SS
+133,"HVAC Panel Ph1 N/W Off. Area G/F,F/F"
+134,"HVAC Panel Ph1 S/W Off. Area G/F,F/F"
+135,HVAC Panel AETP Area F/F
+136,"Air Comp, GA75,470 CFM"
+137,"Air Comp,Atlas copco,GA 315-1 VSD,2000 CFM"
+138,"Air Comp,Atlas copco,GA 132,VSD,1000 CFM"
+139,"Air Comp,Boge SLF221,1000 CFM"
+140,Mobile Comp new HT shop
+141,"HP Comp, Ingersollrand 40bar"
+142,"HP Comp, Ingersollrand 40bar"
+143,"Air Comp,GA315-2 VSD,1650 CFM"
+144,"Air Comp,GA315-3 VSD,1650 CFM"
+145,"HP Comp, 40bar,Ingersollrand,20HP-1"
+146,"HP Comp, 40bar,Ingersollrand,20HP-2"
+147,"HP Comp, 40bar,Ingersollrand,20HP-3"
+148,"HP Comp, 40bar,Ingersollrand,20HP-4"
+149,"Air Driyer-01, Boge"
+150,"Air Driyer-02, Boge"
+151,"Air Driyer SI-300DW, Summit"
+152,"Air Driyer SI-300DW, Summit"
+153,Borewell 1 Panel
+154,Borewell 2 Panel
+155,Borewell 3 Panel
+156,Borewell 4 Panel
+157,Borewell 5 Panel
+158,Borewell 6 Panel
+159,Chiller 225 TR (Utility Block)
+160,Chiller 225 TR (Utility Block)
+161,Chiller 600 TR (Utility Block)
+162,Chiller 600 TR (Utility Block)
+163,Chiller 600 TR (Utility Block)
+164,Chiller 600 TR (Utility Block)
+165,Chiller 600 TR (Utility Block)
+166,"11kV HT Panel, solar, SS (4Nos.)"
+167,AHU-01 (Ph1 N/W 1st Flr.)
+168,AHU-02 (Ph1 N/W 1st Flr.)
+169,AHU-03 (Ph1 N/W 1st Flr.)
+170,AHU-04 (Ph1 N/W 1st Flr.)
+171,AHU-05 (Ph1 N/W 1st Flr.)
+172,AHU-06 (Ph1 N/W 1st Flr.)
+173,AHU-07 (Ph1 N/W 1st Flr.) 
+174,AHU-08 (Ph1 N/W 1st Flr.) 
+175,AHU-01 (Ph1 S/W 1st Flr.)
+176,AHU-02 (Ph1 S/W 1st Flr.)
+177,AHU-03 (Ph1 S/W 1st Flr.)
+178,AHU-04 (Ph1 S/W 1st Flr.)
+179,AHU-05 (Ph1 S/W 1st Flr.)
+180,AHU-06 (Ph1 S/W 1st Flr.)
+181,AHU-07 (Ph1 S/W 1st Flr.) 
+182,AHU-08 (Ph1 S/W 1st Flr.)
+183, VAHU-01 (Ph1 N/W UPS room) 
+184,VAHU-02 (Ph1 N/W UPS Room)
+185,VAHU-01 (Ph1 S/W UPS Room) 
+186,VAHU-02 (Ph1 S/W UPS Room)
+187,AHU-01 (Ph2 N/W 1st Flr.)
+188,AHU-02 (Ph2 N/W 1st Flr.)
+189,AHU-03 (Ph2 N/W 1st Flr.)
+190,AHU-04 (Ph2 N/W 1st Flr.)
+191,AHU-05 (Ph2 N/W 1st Flr.)
+192,AHU-06 (Ph2 N/W 1st Flr.)
+193,AHU-07 (Ph2 N/W 1st Flr.) 
+194,AHU-08 (Ph2 N/W 1st Flr.)
+195,Process Ex. Panel 1(Ph2 N/W 1st Flr.)
+196,Process Ex. Panel 2(Ph2 N/W 1st Flr.)
+197,Process Ex. Panel 3(Ph2 N/W 1st Flr.)
+198,Process Ex. Panel 4(Ph2 N/W 1st Flr.)
+199,Auxilary fan control Panel (Ph2 N/W 1st Flr.)
+200,Treated Fresh Air unit (TFA) (Ph2 N/W 1st Flr.)
+201,AHU-Ph-2 F/F for Data Room
+202,AHU-01 (Ph2 S/W 1st Flr.)
+203,AHU-02 (Ph2 S/W 1st Flr.)
+204,AHU-03 (Ph2 S/W 1st Flr.)
+205,AHU-04 (Ph2 S/W 1st Flr.)
+206,AHU-05 (Ph2 S/W 1st Flr.)
+207,AHU-06 (Ph2 S/W 1st Flr.)
+208,AHU-07 (Ph2 S/W 1st Flr.) 
+209,AHU-08 (Ph2 S/W 1st Flr.)
+210,Process Ex. Panel 1 (Ph2 S/W 1st Flr.)
+211,Process Ex. Panel 2(Ph2 S/W 1st Flr.)
+212,Process Ex. Panel 3(Ph2 S/W 1st Flr.)
+213,Process Ex. Panel 4(Ph2 S/W 1st Flr.)
+214,Treated Fresh Air unit (TFA)
+215,"66kV & DG Room (RPDB,UPSDB, LDB, ELDB)"
+216,"Utility (RPDB,UPSDB,LDB,ELDB)"
+217,"Pump Room (RPDB,UPSDB,LDB,ELDB)"
+218,"Chemical Store Room (RPDB,UPSDB,LDB,ELDB)"
+219,"Kitchen Elec. Room (RPDB,UPSDB,LDB,ELDB)"
+220,"Gate2&3 Area (RPDB,UPSDB,LDB,ELDB)"
+221,"Ph-1 S/W DBs (RPDB,UPSDB,LDB,ELDB)"
+222,"Ph-1 N/W DBs(RPDB,UPSDB,LDB,ELDB)"
+223,"Log Area N /W & S/W(RPDB,UPSDB,LDB,ELDB)"
+224,"Ph-2 N/W DBs(RPDB,UPSDB,LDB,ELDB)"
+225,"Ph-2 S/W DBs(RPDB,UPSDB,LDB,ELDB)"
+226,"TCT (RPDB,UPSDB,LDB,ELDB)"
+227,"HT,ST, STP & AETP (RPDB,UPSDB,LDB,ELDB)"
+228,"Solar Plant (RPDB,UPSDB,LDB,ELDB)"
+229,"Battery charger 110V,DC 66kV Panel room (Uni-insta)"
+230,UPS 10 KVA ABB 1 DG room UPS 
+231,UPS 10 KVA ABB 2 DG room UPS 
+232,"Battery charger, 24 V DC 35A  DG room, (Naren)"
+233,"Battery charger, 24 V DC 35A, DG room (Naren)"
+234,"Battery charger,24 V DC 50A , DG room (Naren) X 4"
+235,"Battery charger,110 V 30A FCBC , DG room (Naren)"
+236,24 V DC Battery charger (Utility)
+237,UPS 60 kVA Supreme (Utility)
+238,UPS 60 kVA Supreme (Utility)
+239,Inverter 10kVA APC (Utility)
+240,"Dynamic UPS 625kVA, Piller (PH-1 N/W)"
+241,"Dynamic UPS 625kVA, Piller (PH-1 S/W)"
+242,Inverter 30kVA APC PH-1 N/W UPS Room
+243,UPS 60kVA ABB PH-1 N/W UPS Room (Off. area)
+244,UPS 60kVA ABB PH-1 N/W UPS Room (Prod. area)
+245,UPS 160kVA ABB PH-1 N/W UPS Room (Prod. area)
+246,"24V,25A DC Battery charger (Naren) PH-1 N/W SS"
+247,Inverter 30kVA APC PH-1 S/W UPS Room
+248,UPS 60kVA ABB PH-1 S/W UPS Room (Off. area)
+249,UPS 100kVA ABB PH-1 S/W UPS Room (Prod. area)
+250,UPS 100kVA  Eaton PH-1 S/W UPS Room (Prod. area)
+251,UPS 60kVA PH-1 F/F Off. Area
+252,UPS 60kVA PH-1 F/F Off. Area
+253,"24V,25A DC Battery charger (Naren) PH-1 S/W SS"
+254,UPS 6KVA Off. Area- 01 (Kitchen)
+255,UPS 10KVA Inverter- 02 (Kitchen)
+256,UPS 125kVA Eaton PH-2 N/W S/S 
+257,UPS 125kVA Eaton  PH-2 S/W S/S 
+258,UPS 40kVA Vertiv For HT Shop
+259,UPS 50kVA Eaton PH-2 F/F South
+260,UPS 60kVA ABB Gate2 UPS Room
+261,UPS 6kVA Emerson LOG Area Quaratine room
+262,UPS 20kVA EatonTCT Area
+263,Battery Bank of UPS 10 KVA ABB 1 DG room
+264,Battery Bank of UPS 10 KVA ABB 2 DG room  
+265,Battery Bank of UPS 60 kVA Supreme 1 (Utility)
+266,Battery Bank of UPS 60 kVA Supreme 2 (Utility)
+267,Battery Bank Inverter 10kVA APC (Utility)
+268,Battery Bank of Inverter 30kVA APC PH-1 N/W 
+269,Battery Bank of UPS 60kVA ABB PH-1 N/W (Off. area)
+270,Battery Bank of UPS 60kVA ABB PH-1 N/W (Prod. area)
+271,Battery Bank of UPS 160kVA ABB PH-1 N/W (Prod. area)
+272,Battery Bank of Inverter 30kVA APC PH-1 S/W
+273,Battery Bank of UPS 60kVA ABB PH-1 S/W (Off. area)
+274,Battery Bank of UPS 100kVA ABB PH-1 S/W (Prod. area)
+275,Battery Bank of UPS 100kVA  Eaton PH-1 S/W (Prod. area)
+276,Battery Bank of UPS 60kVA PH-1 F/F Off. Area
+277,Battery Bank of UPS 60kVA PH-1 F/F Off. Area
+278,Battery Bank of UPS 6KVA Off. Area- 01 (Kitchen)
+279,Battery Bank of UPS 10KVA Inverter- 02 (Kitchen)
+280,Battery Bank of UPS 125kVA Eaton PH-2 N/W S/S 
+281,Battery Bank of UPS 125kVA Eaton  PH-2 S/W S/S 
+282,Battery Bank of UPS 40kVA Vertiv For HT Shop
+283,Battery Bank of UPS 20kVA Eaton PH-2 F/F South
+284,Battery Bank of UPS 60kVA ABB Gate2 UPS Room
+285,Battery Bank of UPS 6kVA Emerson LOG Area South
+286,Battery Bank of UPS TCT Area
+287,Borewell 7 Panel
+288,Borewell 8 Panel
+289,Solar Plant Tr-1 3000kVA
+290,Solar plant Tr-2 3000kVA
+291,Earth Pits
+292,Thermography
+293,LUX Level
+294,VANJAX -275K
+295,VANJAX-282C
+296,Mobile Comp old HT shop
+297,Main LT Feeders (Pump Room)
+298,Main LT Feeders ( New Pump Room)
+299,Rain water panel (DG yard)
+300,Main LT Feeders (Chemical Store Room )
+301,Kitchen Area Exhaust Panel & Fresh Air Panel 5no

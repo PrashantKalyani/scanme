@@ -1,7 +1,0 @@
-id,parkingspace_floor_id,name,type,status
-1,1,Parkingspace 1,TWO_WHEELER,AVAILABLE
-2,1,Parkingspace 2,TWO_WHEELER,AVAILABLE
-3,2,Parkingspace 3,TWO_WHEELER,AVAILABLE
-4,2,Parkingspace 4,FOUR_WHEELER,AVAILABLE
-5,3,Parkingspace 1,FOUR_WHEELER,AVAILABLE
-6,3,Parkingspace 2,FOUR_WHEELER,AVAILABLE

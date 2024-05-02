@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-pf51
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: pf51
+            columns:
+              - column:
+                  name: id
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+                  startWith: 1
+                  type: BIGINT
+              - column:
+                  name: tech_name
+                  type: varchar(200)
+              - column:
+                  name: time_done
+                  type: timestamp
+              - column:
+                  name: time_eta
+                  type: timestamp
+              - column:
+                  name: shift
+                  type: varchar(200)
+              - column:
+                  name: temp
+                  type: DOUBLE
+              - column:
+                  name: rh
+                  type: DOUBLE
+              - column:
+                  name: remarks
+                  type: varchar(200)
+              - column:
+                  name: sign
+                  type: BLOB

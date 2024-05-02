@@ -14,7 +14,7 @@ import java.util.List;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public Long id;
 
@@ -51,22 +51,6 @@ public class Employee {
     @Column(name = "job" , nullable = false)
     public String jobrole;
 
-    @Column(name = "jobstatus", nullable = false)
-    @Convert(converter = StatusConverter.class)
-    private boolean status;
-    public boolean isStatus() {
-        return status;
-    }
-
-    public List<WorkspaceBooking> getWorkspaceBookings() {
-        List<WorkspaceBooking> workspaceBookings = new ArrayList<>();
-        for (WorkspaceBooking booking : workspaceBookings) {
-            if (booking.employee.equals(this.id)) {
-                workspaceBookings.add(booking);
-            }
-        }
-        return workspaceBookings;
-    }
 
 
     public Department getDepartment() {

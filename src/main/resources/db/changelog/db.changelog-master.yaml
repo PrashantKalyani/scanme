@@ -8,31 +8,34 @@ databaseChangeLog:
   - include:
       file: db/changelog/db.changelog-insert-into-office.yaml
   - include:
-      file: db/changelog/db.changelog-create-workspace_floor.yaml
-  - include:
-      file: db/changelog/db.changelog-insert-into-workspace_floor.yaml
-  - include:
-      file: db/changelog/db.changelog-create-parkingspace_floor.yaml
-  - include:
-      file: db/changelog/db.changelog-insert-into-parkingspace_floor.yaml
-  - include:
-      file: db/changelog/db.changelog-create-workspace.yaml
-  - include:
-      file: db/changelog/db.changelog-insert-into-workspace.yaml
-  - include:
       file: db/changelog/db.changelog-create-employee.yaml
   - include:
       file: db/changelog/db.changelog-insert-into-employee.yaml
   - include:
-      file: db/changelog/db.changelog-create-workspace_booking.yaml
-
-  - include:
-      file: db/changelog/db.changelog-create-parkingspace.yaml
-  - include:
-      file: db/changelog/db.changelog-insert-into-parkingspace.yaml
-  - include:
-      file: db/changelog/db.changelog-create-parkingspace_booking.yaml
-  - include:
       file: db/changelog/db.changelog-create-department.yaml
   - include:
       file: db/changelog/db.changelog-insert-into-department.yaml
+  - include:
+      file: db/changelog/db.changelog-create-transformer_log.yaml
+  - include:
+      file: db/changelog/db.changelog-create-checklist.yaml
+  - include:
+      file: db/changelog/db.changelog-create-referencenumber.yaml
+  - include:
+      file: db/changelog/db.changelog-insert-into-referencenumber.yaml
+  - include:
+      file: db/changelog/db.changelog-create-request.yaml
+  - include:
+      file: db/changelog/db.changelog-create-cp4rh.yaml
+  - include:
+      file: db/changelog/db.changelog-create-fmracrh.yaml
+  - include:
+      file: db/changelog/db.changelog-create-lambda-sensor.yaml
+  - include:
+      file: db/changelog/db.changelog-create-line-5-6.yaml
+  - include:
+      file: db/changelog/db.changelog-create-line-7.yaml
+  - include:
+      file: db/changelog/db.changelog-create-pf51.yaml
+  - include:
+      file: db/changelog/db.changelog-create-ups.yaml

@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-referencenumber
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: reference_number
+            columns:
+              - column:
+                  name: Reference
+                  type: BIGINT
+              - column:
+                  name: Equipment
+                  type: varchar(200)

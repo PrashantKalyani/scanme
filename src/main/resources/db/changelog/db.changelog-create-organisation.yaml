@@ -4,7 +4,7 @@ databaseChangeLog:
      author: santosh.g@desapex.com
      changes:
       - createTable:
-          tableName: Organisation
+          tableName: organisation
           columns:
             - column:
                 constraints:

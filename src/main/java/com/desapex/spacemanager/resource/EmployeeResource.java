@@ -28,52 +28,36 @@ public class EmployeeResource {
             @RequestParam(name = "jobstatus", required = false) String jobstatus) {
         List<EmployeeDto> employeeDtos = employeeService.getEmployees(organisationId, officeId)
                 .stream()
-                .filter(employee -> jobstatus == null || employee.isStatus() == Boolean.parseBoolean(jobstatus))
                 .map(office -> employeeDtoTransformer.transform(office))
                 .collect(Collectors.toList());
 
         return employeeDtos;
     }
-
-    @PostMapping("/{employeeId}/status")
-    public ResponseEntity<String> toggleEmployeeStatus(@PathVariable Long employeeId) {
-        try {
-            EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
-            if (employeeDto != null) {
-                boolean currentStatus = employeeDto.isJobstatus();
-                boolean newStatus = !currentStatus; // Toggle the current status
-
-                employeeService.updateEmployeeStatus(employeeId, newStatus);
-                String statusMessage = newStatus ? "Employee status updated to Active" : "Employee status updated to Inactive";
-                return ResponseEntity.ok(statusMessage);
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
-    @PostMapping("/{employeeId}/password")
+    
+    @PostMapping(path = "resetPassword")
     public ResponseEntity<String> resetPassword(
-            @PathVariable String employeeId,
-            @RequestParam String oldPassword,
-            @RequestParam String newPassword) {
-        try {
-//            EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
+            @RequestParam(name = "email") String email,
+            @RequestParam(name = "oldPassword") String oldPassword,
+            @RequestParam(name = "newPassword") String newPassword,
+            @RequestParam(name = "confirmNewPassword") String confirmNewPassword) {
 
-                String username = employeeId;
-                boolean passwordReset = employeeService.resetPassword(username, oldPassword, newPassword);
-                if (passwordReset) {
-                    return ResponseEntity.ok("Password reset successful");
-                } else {
-                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid old password");
-                }
-//            } else {
-//                return ResponseEntity.notFound().build();
-//            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        // Check if new password matches confirm password
+        if (!newPassword.equals(confirmNewPassword)) {
+            return ResponseEntity.badRequest().body("New password and confirm new password do not match.");
+        }
+
+        // Call service method to reset password
+        String result = employeeService.resetPassword(email, oldPassword, newPassword);
+
+        // Return appropriate response
+        if (result.equals("SUCCESS")) {
+            return ResponseEntity.ok("Password reset successfully.");
+        } else if (result.equals("USER_NOT_FOUND")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No user found with this email.");
+        } else if (result.equals("WRONG_PASSWORD")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect old password.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while resetting the password.");
         }
     }
 }

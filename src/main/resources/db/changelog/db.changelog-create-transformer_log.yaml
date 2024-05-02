@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-transformer_log
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: transformer_log
+            columns:
+              - column:
+                  name: id
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+                  startWith: 1
+                  type: BIGINT
+              - column:
+                  name: transformer_name
+                  type: varchar(200)
+              - column:
+                  name: time_done
+                  type: timestamp
+              - column:
+                  name: time_eta
+                  type: timestamp
+              - column:
+                  name: location
+                  type: varchar(200)
+              - column:
+                  name: dept
+                  type: varchar(200)
+              - column:
+                  name: channel_temp
+                  type: DOUBLE
+              - column:
+                  name: voltage
+                  type: DOUBLE
+              - column:
+                  name: ampere
+                  type: DOUBLE
+              - column:
+                  name: power_in_kw
+                  type: DOUBLE
+              - column:
+                  name: power_import_in_kw
+                  type: DOUBLE
+              - column:
+                  name: power_export_in_kw
+                  type: DOUBLE
+              - column:
+                  name: frequency
+                  type: DOUBLE
+              - column:
+                  name: sign
+                  type: BLOB

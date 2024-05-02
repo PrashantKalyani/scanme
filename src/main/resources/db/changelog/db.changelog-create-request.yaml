@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-request
+      author: santosh.g@desapex.com
+      changes:
+        - createTable:
+            tableName: Request
+            columns:
+              - column:
+                  name: id
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+                  startWith: 1
+                  type: BIGINT
+              - column:
+                  name: asset_name
+                  type: varchar(200)
+              - column:
+                  name: Sentby
+                  type: varchar(200)
+              - column:
+                  name: Receivedby
+                  type: varchar(200)
+              - column:
+                  name: task_id
+                  type: BIGINT
+              - column:
+                  name: Date
+                  type: DATE
+              - column:
+                  name: read_or_unread
+                  type: boolean
+              - column:
+                  name: reference_id
+                  type: BIGINT

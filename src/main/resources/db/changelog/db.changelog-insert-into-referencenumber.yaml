@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-referencenumber
+      author: santosh.g@desapex.com
+      changes:
+        - loadData:
+            tableName: reference_number
+            file: classpath:/db/changelog/data/Reference Number.csv
+            columns:
+              - column:
+                  name: Reference
+                  type: BIGINT
+              - column:
+                  name: Equipment
+                  type: varchar(200)

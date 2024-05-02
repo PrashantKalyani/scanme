@@ -23,7 +23,6 @@ public class UserController {
         Optional<Integer> userIdOptional = (Optional<Integer>) loginResult.get("userId");
         Optional<Boolean> statusOptional = (Optional<Boolean>) loginResult.get("status");
 
-        // Check if the userIdOptional is empty or jobStatus is not "Active"
         if (!userIdOptional.isPresent() || !statusOptional.isPresent() || !statusOptional.get()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         } else {

@@ -1,12 +1,18 @@
 spring:
+  datasource:
+    url: jdbc:mysql://desapexserver.mysql.database.azure.com:3306/desapexdb?useSSL=true
+    username: Desapex
+    password: scanme@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
   liquibase:
     enabled: true
     change-log: classpath:/db/changelog/db.changelog-master.yaml
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.SQLServerDialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
 
 server:
   port: 8080
+
 

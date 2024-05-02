@@ -24,23 +24,5 @@ public class EmployeeDto {
     public String phone;
     public Department department_id;
     public String jobrole;
-    private boolean jobstatus;
 
-
-    public Employee toEmployee() {
-        Employee employee = new Employee();
-        employee.setId(this.getId());
-        employee.setOrganisation(this.getOrganisation());
-        employee.setOffice(this.getOffice());
-        employee.setFirst_name(this.getFirst_name());
-        employee.setLast_name(this.getLast_name());
-        employee.setUser(this.getUser());
-        employee.setPassword(this.getPassword());
-        employee.setEmail(this.getEmail());
-        employee.setPhone(this.getPhone());
-        employee.setDepartment_id(this.getDepartment_id());
-        employee.setJobrole(this.getJobrole());
-        employee.setStatus(this.jobstatus);
-        return employee;
-    }
 }
