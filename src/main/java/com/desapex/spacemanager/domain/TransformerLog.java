@@ -18,7 +18,7 @@ public class TransformerLog {
     @Column(name = "transformer_name", nullable = false)
     public String transformerName;
 
-    @Column(name = "time_done", nullable = false)
+    @Column(name = "time_done")
     public LocalDateTime timeDone;
 
     @Column(name = "time_eta", nullable = false)

@@ -5,6 +5,9 @@ import com.desapex.spacemanager.repository.TransformerLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 @Service
 public class TransformerLogService {
 
@@ -16,6 +19,7 @@ public class TransformerLogService {
     }
 
     public void saveTransformerLog(TransformerLog transformerLog) {
+        transformerLog.setTimeDone(Timestamp.from(Instant.now()).toLocalDateTime());
         transformerLogRepository.save(transformerLog);
     }
 }
