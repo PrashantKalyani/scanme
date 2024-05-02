@@ -218,9 +218,21 @@ public class Checklist {
     @Column(name = "sp")
     public byte[] sp;
 
+    @Column(name = "sp_name")
+    public String namesp;
+
     @Column(name = "fm")
     public byte[] fm;
 
+    @Column(name = "fm_name")
+    public String namefm;
+
     @Column(name = "gm")
     public byte[] gm;
+
+    @Column(name = "gm_name")
+    public String namegm;
+
+    @Column(name = "attached")
+    public byte[] attached;
 }

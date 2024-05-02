@@ -212,9 +212,20 @@ databaseChangeLog:
                   name: sp
                   type: BLOB
               - column:
+                  name: sp_name
+                  type: varchar(200)
+              - column:
                   name: fm
                   type: BLOB
               - column:
+                  name: fm_name
+                  type: varchar(200)
+              - column:
                   name: gm
                   type: BLOB
-
+              - column:
+                  name: gm_name
+                  type: varchar(200)
+              - column:
+                  name: attached
+                  type: BLOB
