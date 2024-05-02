@@ -50,10 +50,10 @@ public class ChecklistService {
             Checklist latestChecklist = latestChecklistOpt.get();
 
             // Fetch previous two rows meeting the conditions with a limit of 2
-            List<Checklist> previousChecklists = checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(maintenanceId, PageRequest.of(0, 2));
+            List<Checklist> previousChecklists = checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(maintenanceId);
 
             // Add second condition to fetch previous checklists
-            previousChecklists.addAll(checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(maintenanceId, PageRequest.of(0, 2)));
+            previousChecklists.addAll(checklistRepository.findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(maintenanceId));
 
             // Extract time from previousChecklists
             List<String> previousChecklistsAsString = previousChecklists.stream()

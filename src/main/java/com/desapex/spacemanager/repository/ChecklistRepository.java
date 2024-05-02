@@ -12,9 +12,9 @@ import java.util.Optional;
 @Repository
 public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
     Optional<Checklist> findTopByMaintenanceIdOrderByIdDesc(Long maintenanceId);
-    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(Long maintenanceId, Pageable pageable);
+    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNullAndGmIsNullOrderByTimeDesc(Long maintenanceId);
 
-    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(Long maintenanceId, Pageable pageable);
+    List<Checklist> findByMaintenanceIdAndSpIsNotNullAndFmIsNotNullAndGmIsNullOrderByTimeDesc(Long maintenanceId);
 }
 
 
