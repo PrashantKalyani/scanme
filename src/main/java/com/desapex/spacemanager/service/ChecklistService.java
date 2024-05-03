@@ -49,14 +49,14 @@ public class ChecklistService {
             Checklist latestChecklist = latestChecklistOpt.get();
 
             List<Timestamp> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
-            List<LocalDateTime> previousChecklistsAsDateTime = previousChecklists.stream()
-                    .map(Timestamp::toLocalDateTime)
-                    .collect(Collectors.toList());
+//            List<LocalDateTime> previousChecklistsAsDateTime = previousChecklists.stream()
+//                    .map(Timestamp::toLocalDateTime)
+//                    .collect(Collectors.toList());
 
 
             Map<String, Object> response = new HashMap<>();
             response.put("latestChecklist", latestChecklist);
-            response.put("previousChecklists", previousChecklistsAsDateTime);
+            response.put("previousChecklists", previousChecklists);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
