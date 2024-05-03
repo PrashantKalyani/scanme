@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Long> {
     List<Request> findByReceivedby(String receivedBy);
-    // You can add custom query methods here if needed
+
 }

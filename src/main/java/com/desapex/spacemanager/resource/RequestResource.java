@@ -24,7 +24,7 @@ public class RequestResource {
     public ResponseEntity<Object> createRequest(@RequestBody Request request) {
         try {
             // Validate inputs
-            if (request.getSentby() == null || request.getReceivedby() == null || request.getTaskid() == null || request.getReferenceid() == null) {
+            if (request.getSentby() == null || request.getReceivedby() == null || request.getTaskid() == null || request.getReferenceid() == null || request.getAssetdata()==null) {
                 return ResponseEntity.badRequest().body("Invalid request data. 'sentby', 'receivedby','TaskId' and 'referenceid' are required fields.");
             }
 

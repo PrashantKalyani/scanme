@@ -39,6 +39,9 @@ public class Request {
     @Column(name = "reference_id", nullable = false)
     private Long referenceid;
 
+
     @Column(name = "asset_data", nullable = false)
     private Long assetdata;
+
+
 }

@@ -20,7 +20,7 @@ public class RequestService {
 
     public void saveRequest(Request request) {
         // Validate required fields
-        if (request.getSentby() == null || request.getReceivedby() == null || request.getTaskid() == null || request.getReferenceid() == null) {
+        if (request.getSentby() == null || request.getReceivedby() == null || request.getTaskid() == null || request.getReferenceid() == null || request.getAssetdata()== null) {
             throw new IllegalArgumentException("Invalid request data");
         }
 
