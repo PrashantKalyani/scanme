@@ -34,3 +34,6 @@ databaseChangeLog:
               - column:
                   name: reference_id
                   type: BIGINT
+              - column:
+                  name: asset_data
+                  type: BIGINT
