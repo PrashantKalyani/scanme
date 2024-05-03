@@ -45,23 +45,24 @@ public class ChecklistService {
         if (latestChecklistOpt.isPresent()) {
             Checklist latestChecklist = latestChecklistOpt.get();
 
-            List<Object> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
+            List<String> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
 
-            List<LocalDateTime> previousChecklistTimes = previousChecklists.stream()
-                    .map(obj -> {
-                        if (obj instanceof LocalDateTime) {
-                            return (LocalDateTime) obj;
-                        } else if (obj instanceof Timestamp) {
-                            return ((Timestamp) obj).toLocalDateTime();
-                        }
-                        return null; // or handle the case when the object is not of type LocalDateTime or Timestamp
-                    })
-                    .filter(Objects::nonNull)
-                    .collect(Collectors.toList());
+
+//            List<LocalDateTime> previousChecklistTimes = previousChecklists.stream()
+//                    .map(obj -> {
+//                        if (obj instanceof LocalDateTime) {
+//                            return (LocalDateTime) obj;
+//                        } else if (obj instanceof Timestamp) {
+//                            return ((Timestamp) obj).toLocalDateTime();
+//                        }
+//                        return null; // or handle the case when the object is not of type LocalDateTime or Timestamp
+//                    })
+//                    .filter(Objects::nonNull)
+//                    .collect(Collectors.toList());
 
             Map<String, Object> response = new HashMap<>();
             response.put("latestChecklist", latestChecklist);
-            response.put("previousChecklists", previousChecklistTimes);
+            response.put("previousChecklists", previousChecklists);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {

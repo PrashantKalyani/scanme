@@ -19,7 +19,7 @@ public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
             "AND ((c.sp IS NOT NULL AND c.fm IS NULL AND c.gm IS NULL) " +
             "OR (c.sp IS NOT NULL AND c.fm IS NOT NULL AND c.gm IS NULL)) " +
             "ORDER BY c.time DESC LIMIT :limit", nativeQuery = true)
-    List<Object> findPreviousChecklists(@Param("maintenanceId") Long maintenanceId, @Param("limit") int limit);
+    List<String> findPreviousChecklists(@Param("maintenanceId") Long maintenanceId, @Param("limit") int limit);
 
 
 
