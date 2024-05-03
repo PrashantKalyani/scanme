@@ -47,19 +47,6 @@ public class ChecklistService {
 
             List<String> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
 
-
-//            List<LocalDateTime> previousChecklistTimes = previousChecklists.stream()
-//                    .map(obj -> {
-//                        if (obj instanceof LocalDateTime) {
-//                            return (LocalDateTime) obj;
-//                        } else if (obj instanceof Timestamp) {
-//                            return ((Timestamp) obj).toLocalDateTime();
-//                        }
-//                        return null; // or handle the case when the object is not of type LocalDateTime or Timestamp
-//                    })
-//                    .filter(Objects::nonNull)
-//                    .collect(Collectors.toList());
-
             Map<String, Object> response = new HashMap<>();
             response.put("latestChecklist", latestChecklist);
             response.put("previousChecklists", previousChecklists);
@@ -72,5 +59,23 @@ public class ChecklistService {
     public Optional<Checklist> getChecklistById(Long id) {
         return checklistRepository.findById(id);
     }
+    public ResponseEntity<?> getChecklistByIdWithPreviousChecklists(Long id) {
+        Optional<Checklist> checklistOptional = getChecklistById(id);
 
+        if (checklistOptional.isPresent()) {
+            Checklist checklist = checklistOptional.get();
+            Long maintenanceId = checklist.getMaintenanceId();
+
+            // Fetch previous checklists using maintenance ID
+            List<String> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("latestChecklist", checklist);
+            response.put("previousChecklists", previousChecklists);
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("No checklist found for maintenance ID: " + id, HttpStatus.NOT_FOUND);
+        }
+    }
 }

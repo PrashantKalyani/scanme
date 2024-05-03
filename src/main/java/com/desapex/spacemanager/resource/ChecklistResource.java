@@ -59,12 +59,12 @@ public class ChecklistResource {
 
     @GetMapping("/checklist/{checklistId}")
     public ResponseEntity<?> getChecklistById(@PathVariable Long checklistId) {
-        Optional<Checklist> checklistOptional = checklistService.getChecklistById(checklistId);
-        if (checklistOptional.isPresent()) {
-            return ResponseEntity.ok().body(checklistOptional.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return checklistService.getChecklistByIdWithPreviousChecklists(checklistId);
+//        if (checklistOptional.isPresent()) {
+//            return ResponseEntity.ok().body(checklistOptional.get());
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
     }
 
 }
