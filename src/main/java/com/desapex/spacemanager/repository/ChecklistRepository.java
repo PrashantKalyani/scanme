@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +20,7 @@ public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
             "AND ((c.sp IS NOT NULL AND c.fm IS NULL AND c.gm IS NULL) " +
             "OR (c.sp IS NOT NULL AND c.fm IS NOT NULL AND c.gm IS NULL)) " +
             "ORDER BY c.time DESC LIMIT :limit", nativeQuery = true)
-    List<LocalDateTime> findPreviousChecklists(@Param("maintenanceId") Long maintenanceId, @Param("limit") int limit);
+    List<Timestamp> findPreviousChecklists(@Param("maintenanceId") Long maintenanceId, @Param("limit") int limit);
 
 }
 
