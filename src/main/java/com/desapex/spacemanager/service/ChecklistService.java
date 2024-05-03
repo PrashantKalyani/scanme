@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -48,15 +45,23 @@ public class ChecklistService {
         if (latestChecklistOpt.isPresent()) {
             Checklist latestChecklist = latestChecklistOpt.get();
 
-            List<Timestamp> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
-//            List<LocalDateTime> previousChecklistsAsDateTime = previousChecklists.stream()
-//                    .map(Timestamp::toLocalDateTime)
-//                    .collect(Collectors.toList());
+            List<Object> previousChecklists = checklistRepository.findPreviousChecklists(maintenanceId, 2);
 
+            List<LocalDateTime> previousChecklistTimes = previousChecklists.stream()
+                    .map(obj -> {
+                        if (obj instanceof LocalDateTime) {
+                            return (LocalDateTime) obj;
+                        } else if (obj instanceof Timestamp) {
+                            return ((Timestamp) obj).toLocalDateTime();
+                        }
+                        return null; // or handle the case when the object is not of type LocalDateTime or Timestamp
+                    })
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
 
             Map<String, Object> response = new HashMap<>();
             response.put("latestChecklist", latestChecklist);
-            response.put("previousChecklists", previousChecklists);
+            response.put("previousChecklists", previousChecklistTimes);
 
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
