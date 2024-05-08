@@ -206,6 +206,186 @@ public class Checklist {
     @Column(name = "after15")
     public byte[] after15;
 
+    @Column(name = "comment16")
+    public String comment16;
+
+    @Column(name = "status16")
+    public String status16;
+
+    @Column(name = "before16")
+    public byte[] before16;
+
+    @Column(name = "after16")
+    public byte[] after16;
+
+    @Column(name = "comment17")
+    public String comment17;
+
+    @Column(name = "status17")
+    public String status17;
+
+    @Column(name = "before17")
+    public byte[] before17;
+
+    @Column(name = "after17")
+    public byte[] after17;
+
+    @Column(name = "comment18")
+    public String comment18;
+
+    @Column(name = "status18")
+    public String status18;
+
+    @Column(name = "before18")
+    public byte[] before18;
+
+    @Column(name = "after18")
+    public byte[] after18;
+
+    @Column(name = "comment19")
+    public String comment19;
+
+    @Column(name = "status19")
+    public String status19;
+
+    @Column(name = "before19")
+    public byte[] before19;
+
+    @Column(name = "after19")
+    public byte[] after19;
+
+    @Column(name = "comment20")
+    public String comment20;
+
+    @Column(name = "status20")
+    public String status20;
+
+    @Column(name = "before20")
+    public byte[] before20;
+
+    @Column(name = "after20")
+    public byte[] after20;
+
+    @Column(name = "comment21")
+    public String comment21;
+
+    @Column(name = "status21")
+    public String status21;
+
+    @Column(name = "before21")
+    public byte[] before21;
+
+    @Column(name = "after21")
+    public byte[] after21;
+
+    @Column(name = "comment22")
+    public String comment22;
+
+    @Column(name = "status22")
+    public String status22;
+
+    @Column(name = "before22")
+    public byte[] before22;
+
+    @Column(name = "after22")
+    public byte[] after22;
+
+    @Column(name = "comment23")
+    public String comment23;
+
+    @Column(name = "status23")
+    public String status23;
+
+    @Column(name = "before23")
+    public byte[] before23;
+
+    @Column(name = "after23")
+    public byte[] after23;
+
+    @Column(name = "comment24")
+    public String comment24;
+
+    @Column(name = "status24")
+    public String status24;
+
+    @Column(name = "before24")
+    public byte[] before24;
+
+    @Column(name = "after24")
+    public byte[] after24;
+
+    @Column(name = "comment25")
+    public String comment25;
+
+    @Column(name = "status25")
+    public String status25;
+
+    @Column(name = "before25")
+    public byte[] before25;
+
+    @Column(name = "after25")
+    public byte[] after25;
+
+    @Column(name = "comment26")
+    public String comment26;
+
+    @Column(name = "status26")
+    public String status26;
+
+    @Column(name = "before26")
+    public byte[] before26;
+
+    @Column(name = "after26")
+    public byte[] after26;
+
+    @Column(name = "comment27")
+    public String comment27;
+
+    @Column(name = "status27")
+    public String status27;
+
+    @Column(name = "before27")
+    public byte[] before27;
+
+    @Column(name = "after27")
+    public byte[] after27;
+
+    @Column(name = "comment28")
+    public String comment28;
+
+    @Column(name = "status28")
+    public String status28;
+
+    @Column(name = "before28")
+    public byte[] before28;
+
+    @Column(name = "after28")
+    public byte[] after28;
+
+    @Column(name = "comment29")
+    public String comment29;
+
+    @Column(name = "status29")
+    public String status29;
+
+    @Column(name = "before29")
+    public byte[] before29;
+
+    @Column(name = "after29")
+    public byte[] after29;
+
+    @Column(name = "comment30")
+    public String comment30;
+
+    @Column(name = "status30")
+    public String status30;
+
+    @Column(name = "before30")
+    public byte[] before30;
+
+    @Column(name = "after30")
+    public byte[] after30;
+
     @Column(name = "tech1")
     public String tech1;
 
