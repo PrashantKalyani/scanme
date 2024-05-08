@@ -4,6 +4,9 @@ import com.desapex.spacemanager.domain.Ups;
 import com.desapex.spacemanager.service.UpsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 @RestController
@@ -20,6 +23,7 @@ public class UpsResource {
 
     @PostMapping("/create")
     public Ups createUps(@RequestBody Ups ups) {
+        ups.setTimeDone(Timestamp.from(Instant.now()).toLocalDateTime());
         return upsService.createUps(ups);
     }
 }
