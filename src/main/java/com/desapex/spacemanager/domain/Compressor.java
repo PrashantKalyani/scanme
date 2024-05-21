@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Compressor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "equip_name")
