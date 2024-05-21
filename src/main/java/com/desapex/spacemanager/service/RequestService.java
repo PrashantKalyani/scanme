@@ -19,21 +19,15 @@ public class RequestService {
     }
 
     public void saveRequest(Request request) {
-        // Validate required fields
         if (request.getSentby() == null || request.getReceivedby() == null || request.getTaskid() == null || request.getReferenceid() == null || request.getAssetdata()== null) {
             throw new IllegalArgumentException("Invalid request data");
         }
 
-        // Set the current timestamp if date is not set
         if (request.getDate() == null) {
             request.setDate(new Date());
         }
-
-        // Save the request
         requestRepository.save(request);
     }
-
-
 
     public List<Request> getRequestsByReceivedby(String receivedBy) {
         return requestRepository.findByReceivedby(receivedBy);

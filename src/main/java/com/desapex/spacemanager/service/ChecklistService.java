@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 @Service
 public class ChecklistService {
     private final ChecklistRepository checklistRepository;
@@ -31,8 +32,6 @@ public class ChecklistService {
             Checklist secondChecklist = new Checklist();
             secondChecklist.setMaintenanceId(savedChecklist.getMaintenanceId());
             secondChecklist.setTime(Timestamp.from(Instant.now()).toLocalDateTime());
-
-
             checklistRepository.save(secondChecklist);
         }
 

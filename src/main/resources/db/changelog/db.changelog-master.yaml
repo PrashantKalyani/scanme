@@ -39,3 +39,5 @@ databaseChangeLog:
       file: db/changelog/db.changelog-create-pf51.yaml
   - include:
       file: db/changelog/db.changelog-create-ups.yaml
+  - include:
+      file: db/changelog/db.changelog-create-compressor.yaml

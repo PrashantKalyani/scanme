@@ -23,17 +23,12 @@ public class RequestResource {
     @PostMapping("/requests")
     public ResponseEntity<Object> createRequest(@RequestBody Request request) {
         try {
-            // Validate inputs
             if (request.getSentby() == null || request.getReceivedby() == null || request.getTaskid() == null || request.getReferenceid() == null || request.getAssetdata()==null) {
                 return ResponseEntity.badRequest().body("Invalid request data. 'sentby', 'receivedby','TaskId' and 'referenceid' are required fields.");
             }
 
-            // Set the current timestamp
             request.setDate(new Date());
-
-            // Save the request
             requestService.saveRequest(request);
-
             return ResponseEntity.status(HttpStatus.CREATED).body("Request created successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("Invalid request data: " + e.getMessage());
@@ -45,15 +40,12 @@ public class RequestResource {
     @GetMapping("/requests")
     public ResponseEntity<Object> getRequestsByReceivedBy(@RequestParam String receivedBy) {
         try {
-            // Validate input
             if (receivedBy == null || receivedBy.isEmpty()) {
                 return ResponseEntity.badRequest().body("'receivedBy' parameter is required.");
             }
 
-            // Retrieve requests based on 'receivedBy' field
             List<Request> requests = requestService.getRequestsByReceivedby(receivedBy);
 
-            // Check if any requests were found
             if (requests.isEmpty()) {
                 return ResponseEntity.notFound().build();
             }
