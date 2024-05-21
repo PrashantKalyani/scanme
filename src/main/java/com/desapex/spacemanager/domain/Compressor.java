@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Setter
 @Getter
+
 @Table(name = "compressor")
 public class Compressor {
 
