@@ -26,6 +26,12 @@ databaseChangeLog:
                   name: time_eta
                   type: timestamp
               - column:
+                  name: location
+                  type: varchar(200)
+              - column:
+                  name: item_no
+                  type: Double
+              - column:
                   name: energy_consumption
                   type: Double
               - column:

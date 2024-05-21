@@ -28,6 +28,12 @@ public class Compressor {
     @Column(name = "time_eta")
     private LocalDateTime timeEta;
 
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "item_no")
+    private Double itemNo;
+
     @Column(name = "energy_consumption")
     private Double energyConsumption;
 
