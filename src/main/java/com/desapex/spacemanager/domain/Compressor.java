@@ -71,6 +71,7 @@ public class Compressor {
     @Column(name = "c_out_temp")
     private Double cOutTemp;
 
+
     @Column(name = "remarks")
     private String remarks;
 
