@@ -78,6 +78,7 @@ public class Compressor {
     @Column(name = "remarks")
     private String remarks;
 
+
     @Column(name = "sign")
     private String sign;
 }
