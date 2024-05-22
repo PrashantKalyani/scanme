@@ -7,10 +7,11 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "compressor")
 @Setter
 @Getter
 
-@Table(name = "compressor")
+
 public class Compressor {
 
     @Id
