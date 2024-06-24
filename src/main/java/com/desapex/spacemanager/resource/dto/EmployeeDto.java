@@ -24,5 +24,5 @@ public class EmployeeDto {
     public String phone;
     public Department department_id;
     public String jobrole;
-
+    public byte[] sign;
 }

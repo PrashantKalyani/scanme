@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,7 +35,7 @@ public class EmployeeResource {
 
         return employeeDtos;
     }
-    
+
     @PostMapping(path = "resetPassword")
     public ResponseEntity<String> resetPassword(
             @RequestParam(name = "email") String email,
@@ -41,15 +43,12 @@ public class EmployeeResource {
             @RequestParam(name = "newPassword") String newPassword,
             @RequestParam(name = "confirmNewPassword") String confirmNewPassword) {
 
-        // Check if new password matches confirm password
         if (!newPassword.equals(confirmNewPassword)) {
             return ResponseEntity.badRequest().body("New password and confirm new password do not match.");
         }
 
-        // Call service method to reset password
         String result = employeeService.resetPassword(email, oldPassword, newPassword);
 
-        // Return appropriate response
         if (result.equals("SUCCESS")) {
             return ResponseEntity.ok("Password reset successfully.");
         } else if (result.equals("USER_NOT_FOUND")) {
@@ -58,6 +57,45 @@ public class EmployeeResource {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect old password.");
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while resetting the password.");
+        }
+    }
+
+    @GetMapping(path = "emailsByUsername")
+    public ResponseEntity<List<String>> getEmailsByUsername(
+            @RequestParam(name = "username") String username) {
+
+        try {
+            List<String> emails = employeeService.getEmailsByUsername(username);
+            return ResponseEntity.ok(emails);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonList(e.getMessage()));
+        }
+    }
+    @PostMapping(path = "sign")
+    public ResponseEntity<String> updateSign(
+            @RequestParam(name = "email") String email,
+            @RequestParam(name = "sign") String signBase64) {
+        try {
+            byte[] sign = Base64.getDecoder().decode(signBase64);
+            employeeService.updateSign(email, sign);
+            return ResponseEntity.ok("Sign updated successfully.");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping(path = "sign")
+    public ResponseEntity<String> getSign(
+            @RequestParam(name = "email") String email) {
+        try {
+            byte[] sign = employeeService.getSignByEmail(email);
+            if (sign == null) {
+                return ResponseEntity.ok("null");
+            }
+            String signBase64 = Base64.getEncoder().encodeToString(sign);
+            return ResponseEntity.ok(signBase64);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 }

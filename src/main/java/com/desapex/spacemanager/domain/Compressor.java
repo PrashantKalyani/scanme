@@ -10,8 +10,6 @@ import java.time.LocalDateTime;
 @Table(name = "compressor")
 @Setter
 @Getter
-
-
 public class Compressor {
 
     @Id
@@ -77,7 +75,6 @@ public class Compressor {
 
     @Column(name = "remarks")
     private String remarks;
-
 
     @Column(name = "sign")
     private String sign;

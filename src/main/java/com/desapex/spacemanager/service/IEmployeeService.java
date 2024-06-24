@@ -13,4 +13,9 @@ public interface IEmployeeService {
 
     public boolean isEmployeeEmailExists(String email);
     String resetPassword(String email, String oldPassword, String newPassword);
+
+    List<String> getEmailsByUsername(String username);
+
+    void updateSign(String email, byte[] sign);
+    byte[] getSignByEmail(String email);
 }

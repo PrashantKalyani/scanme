@@ -14,7 +14,7 @@ import java.util.List;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public Long id;
 
@@ -44,24 +44,14 @@ public class Employee {
     @Column(name = "phone", nullable = false)
     public String phone;
 
+    @Column(name = "sign", nullable = false)
+    public byte[] sign;
+
     @ManyToOne(targetEntity = Department.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "department_id", referencedColumnName = "id")
-    public Department department_id;
+    public Department department;
 
     @Column(name = "job" , nullable = false)
     public String jobrole;
 
-
-
-    public Department getDepartment() {
-        return department_id;
-    }
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
 }

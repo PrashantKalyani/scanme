@@ -2,6 +2,7 @@ package com.desapex.spacemanager.service;
 
 import com.desapex.spacemanager.domain.Employee;
 import com.desapex.spacemanager.repository.EmployeeRepository;
+import com.desapex.spacemanager.resource.dto.Employee_DBUtil;
 import com.desapex.spacemanager.resource.transformer.EmployeeDtoTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,9 +50,9 @@ public class EmployeeService implements IEmployeeService {
         return Objects.equals(employee.office.id, officeId);
     }
 
-//    public EmployeeService() throws SQLException {
-//        connection = Employee_DBUtil.getConnection();
-//    }
+    public EmployeeService() throws SQLException {
+        connection = Employee_DBUtil.getConnection();
+    }
 
 
     @Override
@@ -68,22 +69,23 @@ public class EmployeeService implements IEmployeeService {
         String job = null;
         int departmentId = -1;
         String departmentName = null;
+        String sign = null;
 
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT e.*,d.name, d.credit FROM EMPLOYEE e INNER JOIN DEPARTMENT d ON e.department_id = d.id WHERE e.email = ?");
             statement.setString(1, username);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                if (rs.getString(9).equals(password)) { // only check password
-                    userId = rs.getInt(1); // get the user ID
-                    userEmail = rs.getString(6); // get the user email
-                    userName = rs.getString(4); // get the user name
-                    job = rs.getString(11); //get the job
-                    departmentId = rs.getInt(10); // get the department ID
+                if (rs.getString(9).equals(password)) {
+                    userId = rs.getInt(1);
+                    userEmail = rs.getString(6);
+                    userName = rs.getString(4);
+                    job = rs.getString(11);
+                    departmentId = rs.getInt(10);
                     departmentName = rs.getString(13);
+                    sign = rs.getString("sign");
                     String jobStatus = rs.getString("jobstatus");
                     status = jobStatus.equalsIgnoreCase("active");
-
                     break;
                 }
             }
@@ -93,32 +95,67 @@ public class EmployeeService implements IEmployeeService {
             result.put("userEmail", userEmail);
             result.put("userName", userName);
             result.put("job", job);
-            result.put("status", Optional.of(status)); // Include the status boolean value
+            result.put("status", Optional.of(status));
             result.put("departmentId", Optional.of(departmentId));
             result.put("departmentName", departmentName);
+            result.put("sign", sign);
             return result;
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
     @Override
     public String resetPassword(String email, String oldPassword, String newPassword) {
-        // Find the employee by email
         Employee employee = employeeRepository.findByEmail(email);
         if (employee == null) {
             return "USER_NOT_FOUND";
         }
 
-        // Check if old password matches
         if (!employee.getPassword().equals(oldPassword)) {
             return "WRONG_PASSWORD";
         }
 
-        // Update password
         employee.setPassword(newPassword);
         employeeRepository.save(employee);
 
         return "SUCCESS";
+    }
+
+    @Override
+    public List<String> getEmailsByUsername(String username) {
+        Employee employee = employeeRepository.findByEmail(username);
+        if (employee == null) {
+            throw new RuntimeException("User not found.");
+        }
+
+        Long departmentId = employee.getDepartment().getId();
+
+        return employeeRepository.findByDepartmentId(departmentId)
+                .stream()
+                .map(Employee::getEmail)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void updateSign(String email, byte[] sign) {
+        Employee employee = employeeRepository.findByEmail(email);
+        if (employee == null) {
+            throw new RuntimeException("User not found.");
+        }
+
+        employee.setSign(sign);
+        employeeRepository.save(employee);
+    }
+
+    @Override
+    public byte[] getSignByEmail(String email) {
+        Employee employee = employeeRepository.findByEmail(email);
+        if (employee == null) {
+            throw new RuntimeException("User not found.");
+        }
+
+        return employee.getSign();
     }
 }
 
