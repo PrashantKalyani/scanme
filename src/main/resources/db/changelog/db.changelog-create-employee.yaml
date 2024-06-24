@@ -42,3 +42,6 @@ databaseChangeLog:
               - column:
                   name: jobstatus
                   type: varchar(200)
+              - column:
+                  name: sign
+                  type: BLOB
