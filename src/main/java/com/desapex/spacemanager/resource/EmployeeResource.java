@@ -96,7 +96,6 @@ public class EmployeeResource {
             return ResponseEntity.ok(signBase64);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-
         }
     }
 }
