@@ -71,7 +71,7 @@ public class EmployeeResource {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonList(e.getMessage()));
         }
     }
-    @PostMapping(path = "sign")
+    @PostMapping(path = "addsign")
     public ResponseEntity<String> updateSign(
             @RequestParam(name = "email") String email,
             @RequestParam(name = "sign") String signBase64) {
@@ -84,7 +84,7 @@ public class EmployeeResource {
         }
     }
 
-    @GetMapping(path = "sign")
+    @GetMapping(path = "getsign")
     public ResponseEntity<String> getSign(
             @RequestParam(name = "email") String email) {
         try {
