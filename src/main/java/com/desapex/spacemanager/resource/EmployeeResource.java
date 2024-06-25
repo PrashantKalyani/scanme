@@ -71,6 +71,7 @@ public class EmployeeResource {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonList(e.getMessage()));
         }
     }
+
     @PostMapping(path = "addsign")
     public ResponseEntity<String> updateSign(
             @RequestParam(name = "email") String email,
@@ -85,7 +86,6 @@ public class EmployeeResource {
     }
 
     @GetMapping(path = "getsign")
-
     public ResponseEntity<String> getSign(
             @RequestParam(name = "email") String email) {
         try {
@@ -93,8 +93,10 @@ public class EmployeeResource {
             if (sign == null) {
                 return ResponseEntity.ok("null");
             }
+
             String signBase64 = Base64.getEncoder().encodeToString(sign);
             return ResponseEntity.ok(signBase64);
+
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
