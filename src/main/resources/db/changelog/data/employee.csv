@@ -21,4 +21,4 @@ id,organisation_id,office_id,first_name,last_name,email,phone,user,password,depa
 20,2,1,Shreenidhi,Shet,Test1,11896209977,akshay,User@123,5,Teamlead,Active
 21,2,2,Varunkumar,Hungund,Desapex,12300880664,adarsh,User@123,6,Admin,Active
 22,1,1,Megha,Sagarkar,NikitaFCM,12705551351,shreenidhi,User@123,4,Teamlead,Active
-23,1,2,Chanda,Kallihal,Nikita,13110222037,varunkumar,User@123,5,User,Active
+23,1,2,Chanda,Kallihal,Nikita,13110222037,varunkumar,User@123,5,User,Activ
